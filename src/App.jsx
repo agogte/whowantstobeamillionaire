@@ -2,12 +2,19 @@ import "./App.css";
 import { useEffect, useMemo, useState } from "react";
 // import Start from "./components/Start";
 import Timer from "./components/Timer";
+import WelcomeScreen from "./components/WelcomeScreen";
 import Trivia from "./components/Trivia";
 
 function App() {
   const [timeOut, setTimeOut] = useState(false);
   const [questionNumber, setQuestionNumber] = useState(1);
   const [earned, setEarned] = useState("$ 0");
+  const [isGameStarted, setGameStarted] = useState(false);
+
+  const handleStartGame = () => {
+    setGameStarted(true);
+    // You can perform any other game initialization logic here
+  };
 
   const shuffle = (array) => { 
     return array.sort(() => Math.random() - 0.5); 
@@ -399,6 +406,10 @@ function App() {
 
   return (
     <div>
+      {!isGameStarted ? (
+        <WelcomeScreen onStartGame={handleStartGame} />
+      ) : (
+        <>
       <div className="app">
       {
         <>
@@ -446,8 +457,11 @@ function App() {
       }
     </div>
     <p className="signature">&copy; Advait Gogte</p>
+    </>
+      )}
     </div>
   );
 }
 
 export default App;
+
