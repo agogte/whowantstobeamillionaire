@@ -16,9 +16,9 @@ function App() {
     // You can perform any other game initialization logic here
   };
 
-  const shuffle = (array) => { 
-    return array.sort(() => Math.random() - 0.5); 
-}; 
+//   const shuffle = (array) => { 
+//     return array.sort(() => Math.random() - 0.5); 
+// }; 
 
   const data = [
     {
@@ -375,7 +375,7 @@ function App() {
     },
   ];
 
-  let shuffledata = shuffle(data)
+  // let shuffledata = shuffle(data)
 
   const moneyPyramid = useMemo(
     () =>
@@ -428,7 +428,7 @@ function App() {
                 </div>
                 <div className="bottom">
                   <Trivia
-                    data={shuffledata}
+                    data={data}
                     questionNumber={questionNumber}
                     setQuestionNumber={setQuestionNumber}
                     setTimeOut={setTimeOut}
